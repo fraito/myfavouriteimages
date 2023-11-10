@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Api\ImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +29,9 @@ Route::group([
     Route::post('logout', [AuthController::class, 'logout']);
     Route::post('refresh', [AuthController::class, 'refresh']);
     Route::post('me', [AuthController::class, 'me']);
+    Route::post('images', [ImageController::class, 'images'])->name('images');
+    Route::delete('deleteImage/{id}', [ImageController::class, 'deleteImage'])->name('deleteImage');
+    Route::post('createImage', [ImageController::class, 'createImage'])->name('createImage');
+    Route::put('updateImage/{id}', [ImageController::class, 'updateImage'])->name('updateImage');
+    Route::post('showImage/{id}', [ImageController::class, 'showImage'])->name('showImage');
 });
